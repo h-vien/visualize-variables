@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "NUXT Data Extractor",
+  "name": "Visualize Environment Variables",
   "version": "1.0",
-  "description": "Extracts window.__NUXT__ from the current website",
+  "description": "Extracts nuxt env and state from the current website",
   "permissions": ["storage", "scripting", "activeTab"],
   "host_permissions": ["<all_urls>"],
   "background": {

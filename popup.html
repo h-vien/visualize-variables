@@ -3,7 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUXT Data</title>
+    <title>Virtualize Variables</title>
+    <style>
+
+        #output{
+            display: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 600px;
+        }
+        .json-container {
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: left;
+        }
+        .key {
+            font-weight: bold;
+            color: #d63384;
+        }
+        .value {
+            color: #007bff;
+        }
+        .toggle {
+            cursor: pointer;
+            color: #198754;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .nested {
+            margin-left: 20px;
+            display: none;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        #searchBox {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            width: 100%;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+    </style>
     <script src="popup.js" defer></script>
     <style>
         body { font-family: Arial, sans-serif; padding: 10px; }
@@ -11,7 +66,11 @@
     </style>
 </head>
 <body>
-    <h2>NUXT Data</h2>
     <pre id="output">Loading...</pre>
+
+    <input type="text" id="searchBox" placeholder="Search key..." oninput="searchJson()">
+
+    <div class="json-container" id="jsonViewer"></div>
+
 </body>
 </html>
