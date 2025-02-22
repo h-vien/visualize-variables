@@ -2,7 +2,8 @@
   "manifest_version": 3,
   "name": "NUXT Data Extractor",
   "version": "1.0",
-  "permissions": ["scripting", "activeTab"],
+  "description": "Extracts window.__NUXT__ from the current website",
+  "permissions": ["storage", "scripting", "activeTab"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"

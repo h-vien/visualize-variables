@@ -2,10 +2,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === 'NUXT_DATA') {
     console.log('Received NUXT data:', message.data);
 
-    // ✅ Send an empty response to prevent the error
+    // ✅ Store data safely in chrome.storage.local
+    chrome.storage.local.set({ nuxtData: message.data }, () => {
+      if (chrome.runtime.lastError) {
+        console.error('Storage error:', chrome.runtime.lastError);
+      } else {
+        console.log('NUXT data saved.');
+      }
+    });
+
+    // ✅ Send a response to prevent message errors
     sendResponse({ status: 'success' });
   }
 
-  // ✅ Return true to keep the message channel open for async operations
+  // ✅ Keep message channel open
   return true;
 });
+  

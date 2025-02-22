@@ -8,18 +8,19 @@ function injectScript() {
 }
 
 injectScript();
-
-window.addEventListener('message', (event) => {
-  if (event.source === window && event.data.type === 'NUXT_DATA') {
-    chrome.runtime.sendMessage(
-      { type: 'NUXT_DATA', data: event.data.data },
-      (response) => {
-        if (chrome.runtime.lastError) {
-          console.warn('Message send error:', chrome.runtime.lastError);
-        } else {
-          console.log('Message response:', response);
+  
+  window.addEventListener('message', (event) => {
+    if (event.source === window && event.data.type === 'NUXT_DATA') {
+      chrome.runtime.sendMessage(
+        { type: 'NUXT_DATA', data: event.data.data },
+        (response) => {
+          if (chrome.runtime.lastError) {
+            console.warn('Message send error:', chrome.runtime.lastError);
+          } else {
+            console.log('Message response:', response);
+          }
         }
-      }
-    );
-  }
-});
+      );
+    }
+  });
+  

@@ -1,24 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-  chrome.runtime.onMessage.addListener((message) => {
-    console.log(message, 'message');
-    if (message.type === 'NUXT_DATA') {
-      console.log('go here', message);
-      document.getElementById('output').textContent = JSON.stringify(
-        message.data,
-        null,
-        2
-      );
+  chrome.storage.local.get('nuxtData', (result) => {
+    if (chrome.runtime.lastError) {
+      console.error('Storage retrieval error:', chrome.runtime.lastError);
+      return;
     }
-  });
 
-  // Request the latest NUXT data when popup is opened
-  chrome.runtime.sendMessage({ type: 'REQUEST_NUXT_DATA' }, (response) => {
-    if (response && response.data) {
+    if (result.nuxtData) {
       document.getElementById('output').textContent = JSON.stringify(
-        response.data,
+        result.nuxtData,
         null,
         2
       );
+    } else {
+      document.getElementById('output').textContent = 'No data found.';
     }
   });
 });
