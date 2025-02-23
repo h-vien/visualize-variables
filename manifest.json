@@ -15,6 +15,9 @@
       "run_at": "document_end"
     }
   ],
+  "icons": {
+    "128": "icon.png"
+  },
   "web_accessible_resources": [
     {
       "resources": ["inject.js"],
