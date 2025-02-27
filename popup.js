@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
           .getElementById('searchBox')
           .value.toLowerCase();
         let allEntries = document.querySelectorAll('.json-entry');
-        console.log(searchKey, 'searchKey');
+
         allEntries.forEach((entry) => {
           let key = entry.dataset.key.toLowerCase();
           let nestedContainer = entry.querySelector('.nested');

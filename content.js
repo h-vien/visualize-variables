@@ -16,9 +16,7 @@ injectScript();
         (response) => {
           if (chrome.runtime.lastError) {
             console.warn('Message send error:', chrome.runtime.lastError);
-          } else {
-            console.log('Message response:', response);
-          }
+          } 
         }
       );
     }
